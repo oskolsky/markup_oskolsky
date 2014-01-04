@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'ltblack';
+  src: url('/oskolsky.com/www/fonts/lt-black-webfont.eot');
+  src: url('/oskolsky.com/www//fonts/lt-black-webfont.eot?#iefix') format('embedded-opentype'),
+  url('/oskolsky.com/www//fonts/lt-black-webfont.woff') format('woff'),
+  url('/oskolsky.com/www//fonts/lt-black-webfont.ttf') format('truetype'),
+  url('/oskolsky.com/www//fonts/lt-black-webfont.svg#ltblack') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ltroman';
+  src: url('/oskolsky.com/www//fonts/lt-roman-webfont.eot');
+  src: url('/oskolsky.com/www//fonts/lt-roman-webfont.eot?#iefix') format('embedded-opentype'),
+  url('/oskolsky.com/www//fonts/lt-roman-webfont.woff') format('woff'),
+  url('/oskolsky.com/www//fonts/lt-roman-webfont.ttf') format('truetype'),
+  url('/oskolsky.com/www//fonts/lt-roman-webfont.svg#ltroman') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body {
+  background: #f6f6f6;
+  color: #000;
+  font-family: "ltroman", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-backface-visibility: hidden;
+}
+
+h1 {
+  color: #fe7883;
+  font-family: "ltblack", Helvetica, Arial, sans-serif;
+  font-size: 60px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.main {
+    
+}
+
+.section {
+  text-align: center;
+  font-size: 30px;
+  line-height: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.about {
+  padding-top: 100px;
+}
