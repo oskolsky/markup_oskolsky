@@ -1,0 +1,86 @@
+%section#intro.intro{role: "region", "aria-label" => "Intro"}
+  .p-t_20.p-b_20
+    %article.tx.__center
+      %header.m-b_6
+        %h1.tx.__color.__major.__upper Maxim Oskolsky
+      %p.gamma Creative Front-end developer
+      %p.gamma CSS / HTML / JS based superman
+      %p.gamma < Fuck Yeah />
+
+%section#skills.skills{role: "region", "aria-label" => "Skills"}
+  .ctn
+    .p-b_20
+      .grid-i.__desktop-grid-1-7
+        %figure.tx.__center
+          %p.beta.m-b_3 1
+          %figcaption
+            %p Html5
+            %p Haml / Slim
+      .grid-i.__desktop-grid-1-7
+        %figure.tx.__center
+          %p.beta.m-b_3 2
+          %figcaption
+            %p Css3
+            %p Sass / Less
+      .grid-i.__desktop-grid-1-7
+        %figure.tx.__center
+          %p.beta.m-b_3 3
+          %figcaption
+            %p Responsive
+            %p Adaptive
+      .grid-i.__desktop-grid-1-7
+        %figure.tx.__center
+          %p.beta.m-b_3 4
+          %figcaption
+            %p JavaScript
+            %p jQuery
+      .grid-i.__desktop-grid-1-7
+        %figure.tx.__center
+          %p.beta.m-b_3 5
+          %figcaption
+            %p AngularJS
+            %p Backbone
+      .grid-i.__desktop-grid-1-7
+        %figure.tx.__center
+          %p.beta.m-b_3 6
+          %figcaption
+            %p Canvas
+            %p GameEngine
+      .grid-i.__desktop-grid-1-7
+        %figure.tx.__center
+          %p.beta.m-b_3 7
+          %figcaption
+            %p PHP
+            %p Ruby on Rails
+
+%section#works.works{role: "region", "aria-label" => "Works"}
+  .ctn  
+    #feed.grid
+      - 1.upto(12) do
+        .item.grid-i.__desktop-grid-1-4
+          %img.va-t.c-bg.__gray{src: "/assets/images/blank.gif", width: "100%", alt: ""}
+
+%section#contacts.contacts{role: "region", "aria-label" => "Contacts"}
+  .ctn 
+    .p-t_20.p-b_20
+      .grid-i.__desktop-grid-5-7.b-center
+        .grid-i.__desktop-grid-1-5
+          .tx.__center
+            %a{href: "#"}
+              %i.fa.fa-facebook
+        .grid-i.__desktop-grid-1-5
+          .tx.__center
+            %a{href: "#"}
+              %i.fa.fa-twitter
+        .grid-i.__desktop-grid-1-5
+          .tx.__center
+            %a{href: "#"}
+              %i.fa.fa-envelope
+        .grid-i.__desktop-grid-1-5
+          .tx.__center
+            %a{href: "#"}
+              %i.fa.fa-skype
+        .grid-i.__desktop-grid-1-5
+          .tx.__center
+            %a{href: "#"}
+              %i.fa.fa-github

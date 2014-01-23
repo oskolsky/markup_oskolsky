@@ -1,0 +1,180 @@
+//****************************************************************************************************
+//
+// .. FONTS
+//
+//****************************************************************************************************
+@font-face {
+  font-family: 'ltroman';
+  src: url('/assets/fonts/lt-roman-webfont.eot');
+  src: url('/assets/fonts/lt-roman-webfont.eot?#iefix') format('embedded-opentype'),
+		   url('/assets/fonts/lt-roman-webfont.woff') format('woff'),
+		   url('/assets/fonts/lt-roman-webfont.ttf') format('truetype'),
+		   url('/assets/fonts/lt-roman-webfont.svg#ltroman') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ltblack';
+  src: url('/assets/fonts/lt-black-webfont.eot');
+  src: url('/assets/fonts/lt-black-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/assets/fonts/lt-black-webfont.woff') format('woff'),
+	     url('/assets/fonts/lt-black-webfont.ttf') format('truetype'),
+	     url('/assets/fonts/lt-black-webfont.svg#ltblack') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+//****************************************************************************************************
+//
+// .. GRID
+//
+//****************************************************************************************************
+$grid: responsive-manual; // .. fixed / fluid / responsive-auto / responsive-manual
+$grid-width-transition: false; // .. true / false
+
+//
+// .. Fixed
+//
+$grid-fixed-col-qty:    12;
+$grid-fixed-col-width:  60; // .. px
+$grid-fixed-col-gutter: 20; // .. px
+$grid-fixed-col-indent: 20; // .. px
+
+//
+// .. Fluid
+//
+$grid-fluid-col-gutter: 2; // .. %
+$grid-fluid-col-indent: 2rem; // .. rem / px
+
+//
+// .. Responsive
+//
+$grid-responsive-col-gutter: 2; // .. %
+$grid-responsive-col-indent: 2rem; // .. rem / px
+
+//
+// .. Responsive auto
+//
+$grid-responsive-auto-col-qty: 12; // .. 8 / 12
+
+//
+// .. Variables
+// .. desktop / tablet / phone
+//
+$root-font-size-list: (62.5%, 57.5%, 52.5%);
+$ctn-width-list: (80%, 80%, 80%);
+$min-width-list: (940px, 620px, 300px); 
+$max-width-list: (1180px, 940px, 620px);
+  
+
+
+//****************************************************************************************************
+//
+// .. STYLES
+//
+//****************************************************************************************************
+//
+// .. Body
+//
+$base-bg: #f6f6f6;
+$base-color: #1c1c1c;
+$base-font-family: "ltroman", Helvetica, Arial, sans-serif;
+$base-font-size-list: (1.6rem, 1.6rem, 1.6rem);
+$base-font-weight: 400;
+$base-line-height-list: (2rem, 2rem, 2rem);
+
+//
+// .. Headings
+//
+$h-font-family: "ltblack", Helvetica, Arial, sans-serif;
+
+$h1-font-size-list: (6rem, 6rem, 6rem);
+$h2-font-size-list: (4rem, 4rem, 4rem);
+$h3-font-size-list: (3rem, 3rem, 3rem);
+$h4-font-size-list: (2rem, 2rem, 2rem);
+$h5-font-size-list: (inherit, inherit, inherit);
+$h6-font-size-list: (inherit, inherit, inherit);
+
+$h1-font-weight-list: (600, 600, 600);
+$h2-font-weight-list: (400, 400, 400);
+$h3-font-weight-list: (400, 400, 400);
+$h4-font-weight-list: (600, 600, 600);
+$h5-font-weight-list: (600, 600, 600);
+$h6-font-weight-list: (inherit, inherit, inherit);
+
+$h1-line-height-list: (5rem, 5rem, 5rem);
+$h2-line-height-list: (2rem, 2rem, 2rem);
+$h3-line-height-list: (4rem, 4rem, 4rem);
+$h4-line-height-list: (1.375, 1.375, 1.375);
+$h5-line-height-list: (inherit, inherit, inherit);
+$h6-line-height-list: (inherit, inherit, inherit);
+
+//
+// .. Colors
+//
+$major-color: #fe7883;
+$minor-color: #eee;
+$muted-color: #ccc;
+
+//
+// .. Focus
+//
+%focus-style {box-shadow: 0 0 .1rem .1rem rgba(41, 128, 185, .66);}
+$focus: true; // .. true / false
+
+//
+// .. Links
+//
+$link-color: $base-color;
+$link-color-hover: $base-color;
+$link-color-active: $base-color;
+$link-style: nn;        // .. nn / uu / un / nu
+$link-style-pseudo: uu; // .. nn / uu / un
+
+//
+// .. Forms
+//
+$form-el-bg: #fff;
+$form-el-border-color: #ccc;
+$form-el-border: 1px solid $form-el-border-color;
+$form-el-border-radius: .3em;
+$form-el-color: #000;
+$form-el-color-required: #f90;
+$form-el-color-valid-true: #008000;
+$form-el-color-valid-false: #f00;
+$form-el-font-size: inherit;
+$form-el-line-height: inherit;
+$form-el-padding: .3rem .6rem;
+$form-btn-padding: .3rem 1.2rem;
+
+//
+// .. Content styles
+//
+$content-factor: 2;
+$content-link: false; // .. true / false
+$content-link-color: #0000cd;
+$content-link-color-hover: #ccc;
+$content-link-color-active: darken($content-link-color-hover, 10%);
+
+//
+// .. Text sizes
+//
+$tx-xxs-font-size: 70%;
+$tx-xs-font-size:  80%;
+$tx-s-font-size:   90%;
+$tx-m-font-size:   100%;
+$tx-l-font-size:   110%;
+$tx-xl-font-size:  120%;
+$tx-xxl-font-size: 130%;
+
+
+
+//****************************************************************************************************
+//
+// .. COMPONENTS
+//
+//****************************************************************************************************
+$components: true; // .. true / false
