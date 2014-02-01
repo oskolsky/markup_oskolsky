@@ -14,12 +14,6 @@
 }
 
 @if $grid == "fluid" {
-
-  //****************************************************************************************************
-  //
-  // .. GRID
-  //
-  //****************************************************************************************************
   //
   // .. Grid
   //
@@ -47,7 +41,7 @@
   // .. Prefix
   //
   .grid {
-    &.__no-gutter { @include grid-responsive-auto-column-qty-12("> ", ".grid-i.__prefix-", "margin-left", 0); }
+    &.__no-gutter {@include grid-responsive-auto-column-qty-12("> ", ".grid-i.__prefix-", "margin-left", 0);}
     @include grid-responsive-auto-column-qty-12("> ", ".grid-i.__prefix-", "margin-left", $grid-fluid-col-gutter);
   }
   @include grid-responsive-auto-column-qty-12("", ".grid-i.__prefix-", "margin-left", 0);
@@ -56,7 +50,7 @@
   // .. Suffix
   //
   .grid {
-    &.__no-gutter { @include grid-responsive-auto-column-qty-12("> ", ".grid-i.__suffix-", "margin-right", 0); }
+    &.__no-gutter {@include grid-responsive-auto-column-qty-12("> ", ".grid-i.__suffix-", "margin-right", 0);}
     @include grid-responsive-auto-column-qty-12("> ", ".grid-i.__suffix-", "margin-right", 0);
   }
   @include grid-responsive-auto-column-qty-12("", ".grid-i.__suffix-", "margin-right", 0);

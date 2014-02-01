@@ -15,17 +15,11 @@
 
 @if $grid == "responsive-auto" {
 
-  //****************************************************************************************************
-  //
-  // .. GRID
-  //
-  //****************************************************************************************************
   @if $grid-responsive-auto-col-qty == 8 {
 
   }
 
   @if $grid-responsive-auto-col-qty == 12 {
-    
     //
     // .. Grid
     //
@@ -70,7 +64,6 @@
       @include grid-responsive-auto-column-qty-12("> ", ".grid-i.__suffix-", "margin-right", 0);
     }
     @include grid-responsive-auto-column-qty-12("", ".grid-i.__suffix-", "margin-right", 0);
-    
   }
 
 }

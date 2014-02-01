@@ -4,7 +4,7 @@
 
   .tx {
     @for $i from 2 through 4 {
-      &.__cols-#{$i} { @include prefixes(column-count, 1); }
+      &.__cols-#{$i} {@include prefixes(column-count, 1);}
     }
   }
 
@@ -14,15 +14,8 @@
   
   html {font-size: nth($root-font-size-list, 3);}
   
-  @include body(1);
+  @include body(3);
 
-
-
-  //****************************************************************************************************
-  //
-  // .. HEADINGS
-  //
-  //****************************************************************************************************
   @include headers(3);
   
 }

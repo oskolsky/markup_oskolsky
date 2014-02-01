@@ -18,11 +18,8 @@
       right: 0;
       left: 0;
       z-index: 1000;
-      background: rgba(246, 246, 246, .75);
-      border: {
-        right: 10px solid $base-color;
-        left:  10px solid $base-color;
-      }
+      background: $base-bg;
+      box-shadow: .1em .1em .3em rgba(0, 0, 0, .25);
     }
   }
 }
@@ -31,35 +28,49 @@
 
 //****************************************************************************************************
 //
-// .. SECTION
+// .. SOCIAL
 //
 //****************************************************************************************************
-//
-// .. Intro
-//
-.intro {
-
+.social {
+  li {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    a {
+      color: #ccc;
+      font-size: 25px;
+      &:hover {color: $major-color;}
+    }
+  }  
 }
 
-//
-// .. Skills
-//
-.skills {
 
-}
 
+//****************************************************************************************************
 //
-// .. Works
+// .. WORKS
 //
+//****************************************************************************************************
 .works {
+  margin-left: 6rem;
+  
+  li:not(:last-child) {margin-bottom: 1rem;}
 
-}
-
-//
-// .. Contacts
-//
-.contacts {
-  font-size: 5.4rem;
+  ol {
+    counter-reset: list;
+    > li {
+      position: relative;
+      &::before {
+        counter-increment: list;
+        content: counter(list) ".";
+        position: absolute;
+        top: 0;
+        right: 100%;
+        margin-right: .5rem;
+        color: #ccc;
+      }
+    }
+  }
 }
 
 

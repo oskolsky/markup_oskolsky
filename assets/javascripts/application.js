@@ -1,118 +1,174 @@
-yepnope([
+//****************************************************************************************************
+//
+// .. INIT
+//
+//****************************************************************************************************
+//
+// .. arcticModal
+//
+$.arcticmodal('setDefault', {
+  overlay: {
+    css: {
+      backgroundColor: '#000',
+      opacity: .66
+    }
+  },
+  openEffect: {
+    speed: 200
+  },
+  closeEffect: {
+    speed: 200
+  }
+});
+
+//
+// .. Accounting
+//
+accounting.settings = {
+  currency: {
+    decimal: '.',
+    thousand: ' ',
+    precision: 2
+  },
+  number: {
+    decimal : '.',
+    thousand: ' ',
+    precision: 0
+  }
+}
+
+
+
+//****************************************************************************************************
+//
+// .. EVENTS
+//
+//****************************************************************************************************
+//
+// .. Open dialog
+//
+$(document).on('click touchstart', '[data-dialog="true"]', function() {
+  var url = $(this).data('url');
+  
+  $.arcticmodal({
+    type: 'ajax',
+    url: url
+  });
+  
+  return false;
+});
+
+//
+// .. Close dialog
+//
+$(document).on('click touchstart', '.js-dialog_close', function() {
+  $.arcticmodal('close');
+});
+
+
+
+//****************************************************************************************************
+//
+// .. READY
+//
+//****************************************************************************************************
+$(function() {
+  
+  // $('#header').stickyHeader();
+  // $('#footer').stickyFooter();
+
+
+
+  //****************************************************************************************************
+  //
+  // .. DOUBLE HOVER
+  //
+  //****************************************************************************************************
+  doubleHover('a.double-hover', 'hover');
+
+
+
+  //****************************************************************************************************
+  //
+  // .. FORMS
+  // .. $('#checkbox').customForm() to init single element; $('body').customForm() to init all elements
+  //
+  //****************************************************************************************************
+  $('.form').customForm();
+
+
+
+  //****************************************************************************************************
+  //
+  // .. SCROLL TO
+  //
+  //****************************************************************************************************
+  $('a[data-scroll="true"]').on('click touchstart', function() {
+    var      anchor = $(this).attr('href'),
+        destination = $(anchor).offset().top;
+    
+    $('html, body').animate({scrollTop: destination}, 500);
+    
+    return false;
+  });
+
+
+
+  //****************************************************************************************************
+  //
+  // .. ACCOUNTING
+  //
+  //****************************************************************************************************
+  //
+  // .. Number
+  //
+  $('.format-number').each(function() {
+    var
+      number = parseInt($(this).text()),
+      formatNumber = accounting.formatNumber(number);
+
+    $(this).text(formatNumber);
+  });
 
   //
-  // .. Vendor
+  // .. Money
   //
-  {
-    load: [
-      'timeout=1000!//code.jquery.com/jquery-2.0.3.min.js',
-      'timeout=1000!//code.jquery.com/ui/1.10.3/jquery-ui.min.js'
-    ],
-    complete: function() {
-      if (!window.jQuery) {
-        yepnope([
-          '/assets/javascripts/vendor/jquery-2.0.3.min.js', // .. 2.0.3
-          '/assets/javascripts/vendor/jquery-ui.min.js' // .. 1.10.3
-        ]);
-      }
-    }
-  },
+  $('.format-money').each(function() {
+    var c = accounting.settings.currency;
 
-  {
-    load: '/assets/javascripts/vendor/underscore-min.js', // .. 1.5.2
-    complete: function() {
-      yepnope('/assets/javascripts/vendor/backbone-min.js'); // .. 1.1.0
+    if ($(this).hasClass('__rub')) {
+      c.format = '%v';
+    } else if ($(this).hasClass('__usd')) {
+      c.symbol = '$';
+      c.format = '%s%v';
+    } else if ($(this).hasClass('__eur')) {
+      c.symbol = '€';
+      c.format = '%s%v';
     }
-  },
-  
-  '/assets/javascripts/vendor/smartresize.js', // .. http://www.paulirish.com/2009/throttled-smartresize-jquery-event-handler/
-  '/assets/javascripts/vendor/doublehover.js', // .. https://gist.github.com/artpolikarpov/3428762
-  
-  {
-    load: '/assets/javascripts/scrollwidth.js', // .. http://davidwalsh.name/detect-scrollbar-width
-    complete: function() {
-      scrollWidth();
-    }
-  },
 
-  {
-    load: '/assets/javascripts/vendor/cycle2/jquery.cycle2.min.js', // .. v20131005
-    complete: function() {
-      yepnope([
-        '/assets/javascripts/vendor/cycle2/jquery.cycle2.carousel.min.js', // .. v20130528
-        '/assets/javascripts/vendor/cycle2/jquery.cycle2.center.min.js', // .. v20131006
-        '/assets/javascripts/vendor/cycle2/jquery.cycle2.scrollVert.min.js', // .. v20121120
-        '/assets/javascripts/vendor/cycle2/jquery.cycle2.swipe.min.js' // .. v20121120
-      ]);
+    var
+      number = parseFloat($(this).text()),
+      formatMoney = accounting.formatMoney(number);
+    
+    if ($(this).hasClass('__rub')) {
+      $(this).text(formatMoney).append('&nbsp;<i class="fa fa-ruble"></i>');
+    } else {
+      $(this).text(formatMoney);
     }
-  },
-  
-  {
-    load: '/assets/javascripts/vendor/jquery.arcticmodal-0.3.min.js', // .. 0.3
-    complete: function() {
-      $.arcticmodal('setDefault', {
-        overlay: {
-          css: {
-            backgroundColor: '#000',
-            opacity: .66
-          }
-        },
-        openEffect: {
-          speed: 200
-        },
-        closeEffect: {
-          speed: 200
-        }
-      });
-    }
-  },
-  
-  {
-    load: '/assets/javascripts/vendor/imagesloaded.pkgd.min.js', // .. 3.0.4
-    complete: function() {
-      yepnope([
-        '/assets/javascripts/vendor/masonry.pkgd.min.js' // .. 3.1.2
-      ]);
-    }
-  },
-  
-  {
-    load: '/assets/javascripts/vendor/accounting.min.js', // .. 0.3.2
-    complete: function() {
-      accounting.settings = {
-        currency: {
-          decimal: '.',
-          thousand: ' ',
-          precision: 2
-        },
-        number: {
-          decimal : '.',
-          thousand: ' ',
-          precision: 0
-        }
-      }
-    }
-  },
+  });
 
+
+
+  //****************************************************************************************************
   //
-  // .. Polyfills
+  // .. RESIZE
   //
-  {
-    test: window.matchMedia,
-    nope: '/assets/javascripts/polyfill/vendor/matchMedia.js' // .. https://github.com/paulirish/matchMedia.js/
-  },
+  //****************************************************************************************************
+  $(window).smartresize(function() {
 
-  {
-    test: Modernizr.input.placeholder,
-    nope: '/assets/javascripts/polyfill/vendor/jquery.placeholder.js' // .. https://github.com/danbentley/placeholder
-  },
+    // $('#header').stickyHeader();
+    // $('#footer').stickyFooter();
+
+  });
   
-  //
-  // .. Custom
-  //
-  '/assets/javascripts/jquery.extensions.js',
-  '/assets/javascripts/forms.js',
-  '/assets/javascripts/components.js',
-  '/assets/javascripts/project.js'
-
-]);  
+});

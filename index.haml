@@ -1,87 +1,70 @@
-%section#about{role: "region", "aria-label" => "About"}
-  .p-t_10
-    %article.tx.__center
-      %header.m-b_6
-        %h1.tx.__color.__major.__upper Maxim Oskolsky
-      %p.gamma Creative Front-end developer
-      %p.gamma CSS / HTML / JS based superman
-      %p.gamma < Fuck Yeah />
-
-%section#skills{role: "region", "aria-label" => "Skills"}
+%section{role: "region", "aria-label" => "About"}
   .ctn
-    .p-t_15.p-b_10
-      .grid-i.__desktop-grid-1-7
-        %figure.tx.__center
-          %p.beta.m-b_3 1
-          %figcaption
-            %p Html5
-            %p Haml / Slim
-      .grid-i.__desktop-grid-1-7
-        %figure.tx.__center
-          %p.beta.m-b_3 2
-          %figcaption
-            %p Css3
-            %p Sass / Less
-      .grid-i.__desktop-grid-1-7
-        %figure.tx.__center
-          %p.beta.m-b_3 3
-          %figcaption
-            %p Responsive
-            %p Adaptive
-      .grid-i.__desktop-grid-1-7
-        %figure.tx.__center
-          %p.beta.m-b_3 4
-          %figcaption
-            %p JavaScript
-            %p jQuery
-      .grid-i.__desktop-grid-1-7
-        %figure.tx.__center
-          %p.beta.m-b_3 5
-          %figcaption
-            %p AngularJS
-            %p Backbone
-      .grid-i.__desktop-grid-1-7
-        %figure.tx.__center
-          %p.beta.m-b_3 6
-          %figcaption
-            %p Canvas
-            %p GameEngine
-      .grid-i.__desktop-grid-1-7
-        %figure.tx.__center
-          %p.beta.m-b_3 7
-          %figcaption
-            %p PHP
-            %p Ruby on Rails
+    .grid
+      .grid-i.__grid-4
+        .works
+          %h5.m-b_2 Markup:
+          %nav
+            %ol
+              %li 
+                %a{href: "//cantataspb.oskolsky.com/demo", target: "_blank"} Cantata
+              %li 
+                %a.tx.__muted{href: "//nike.oskolsky.com", target: "_blank"} Nike
+              %li 
+                %a{href: "//cis.oskolsky.com", target: "_blank"} Carlsbad International School
+              %li 
+                %a{href: "//co.oskolsky.com", target: "_blank"} Glasses
+              %li 
+                %a.tx.__muted{href: "//faqman.oskolsky.com", target: "_blank"} Faqman
+              %li 
+                %a.tx.__muted{href: "//riw2013.oskolsky.com", target: "_blank"} RIW 2013
+              %li 
+                %a.tx.__muted{href: "//techkranch.oskolsky.com", target: "_blank"} Techkranch
+              %li 
+                %a.tx.__muted{href: "//unen.oskolsky.com", target: "_blank"} United Engineers
+              %li 
+                %a.tx.__muted{href: "//vv.oskolsky.com/", target: "_blank"} VVatch
+              %li 
+                %a.tx.__muted{href: "//lego.oskolsky.com/demo", target: "_blank"} Lego
+              %li 
+                %a.tx.__muted{href: "//samsung.oskolsky.com", target: "_blank"} Samsung
+              %li 
+                %a.tx.__muted{href: "//grape.oskolsky.com", target: "_blank"} Grape
+              %li 
+                %a.tx.__muted{href: "//grape-bunch.oskolsky.com", target: "_blank"} Grape Bunch
+              %li 
+                %a.tx.__muted{href: "//ping.oskolsky.com", target: "_blank"} Ping app v1
+              %li 
+                %a.tx.__muted{href: "//ping2.oskolsky.com", target: "_blank"} Ping app v2
+              %li 
+                %a.tx.__muted{href: "//ping3.oskolsky.com", target: "_blank"} Ping app v3
+              %li 
+                %a.tx.__muted{href: "//skycat.oskolsky.com", target: "_blank"} Skycat
+              %li 
+                %a.tx.__muted{href: "//miel.oskolsky.com", target: "_blank"} Miel
+              %li 
+                %a.tx.__muted{href: "//skycampus.oskolsky.com", target: "_blank"} Skycampus
+              %li 
+                %a.tx.__muted{href: "//sp.oskolsky.com", target: "_blank"} Smolpoint
+              %li 
+                %a.tx.__muted{href: "//t24.oskolsky.com", target: "_blank"} Transfers 24
+      
+      .grid-i.__grid-4
+        .works
+          %h6.m-b_2 Projects:
+          %nav
+            %ol
+              %li 
+                %a{href: "#", target: "_blank"} Chemistry Template
+              %li 
+                %a{href: "#", target: "_blank"} Game Isometric
 
-%section#works{role: "region", "aria-label" => "Works"}
-  .ctn  
-    .p-t_10
-      #feed.grid
-        - 1.upto(12) do
-          .item.grid-i.__desktop-grid-1-4
-            %img.va-t.c-bg.__gray{src: "/assets/images/blank.gif", width: "100%", alt: ""}
-
-%section#contacts.contacts{role: "region", "aria-label" => "Contacts"}
-  .ctn 
-    .p-t_25.p-b_25
-      .grid-i.__desktop-grid-5-7.b-center
-        .grid-i.__desktop-grid-1-5
-          .tx.__center
-            %a{href: "//www.facebook.com/oskolsky"}
-              %i.fa.fa-facebook
-        .grid-i.__desktop-grid-1-5
-          .tx.__center
-            %a{href: "//twitter.com/Oskolsky"}
-              %i.fa.fa-twitter
-        .grid-i.__desktop-grid-1-5
-          .tx.__center
-            %a{href: "mailto: info@oskolsky.com"}
-              %i.fa.fa-envelope
-        .grid-i.__desktop-grid-1-5
-          .tx.__center
-            %a{href: "skype: maxim_oskolsky"}
-              %i.fa.fa-skype
-        .grid-i.__desktop-grid-1-5
-          .tx.__center
-            %a{href: "//github.com/oskolsky"}
-              %i.fa.fa-github
+      .grid-i.__grid-4
+        .works
+          %h6.m-b_2 JavaScript:
+          %nav
+            %ol
+              %li 
+                %a{href: "//github.com/oskolsky/js_jquery-extensions", target: "_blank"} jQuery Extensions Plugin
+              %li 
+                %a{href: "#", target: "_blank"} Backbone Render Collection

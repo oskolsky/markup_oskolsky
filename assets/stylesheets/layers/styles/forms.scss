@@ -3,7 +3,7 @@ button, input, select, textarea {
             font-family: inherit;
      -webkit-appearance: none;
   @if $focus == true {
-    &:focus { @extend %focus-style; }
+    &:focus {@extend %focus-style;}
   }
 }
 
@@ -20,261 +20,222 @@ input {
   &[type="search"]::-webkit-search-decoration {-webkit-appearance: none;}
 }
 
-//
-// .. Button, reset, submit
-//
-.form_button {
-  padding: $form-btn-padding;
-  border: $form-el-border;
-  border-radius: $form-el-border-radius;
-  color: $form-el-color;
-  text-align: center;
-  font-size: $form-el-font-size;
-  line-height: $form-el-line-height;
-  cursor: pointer;
-  @include prefixes(box-sizing, border-box);
-  @include linear-gradient(vertical, #eee, #ddd);
-  &:not([disabled]):hover {box-shadow: inset 0 0 .3em rgba(0, 0, 0, .1);}
-  &:not([disabled]):active { @include linear-gradient(vertical, #ddd, #eee); }
-}
-a.form_button {
-  display: inline-block;
-  text-decoration: none;
-  @include prefixes(transition, none);
-}
 
-//
-// .. Text
-//
-.form_text {
-  padding: $form-el-padding;
-  height: $form-el-line-height; // .. FF
-  border: $form-el-border;
-  border-radius: $form-el-border-radius;
-  background: $form-el-bg;
-  color: $form-el-color;
-  font-size: $form-el-font-size;
-  line-height: $form-el-line-height;
-  @include prefixes(box-sizing, border-box);
-}
 
+//****************************************************************************************************
 //
-// .. Checkbox, radio, file, select,
+// .. ELEMENTS
 //
-.form_el {
+//****************************************************************************************************
+.form-el {
+  @include prefixes(box-sizing, border-box);
+
   &.__real {cursor: pointer;}
+  
   @if $focus == true {
-    &.__focus { @extend %focus-style; }
+    &.__focus {@extend %focus-style;}
   }
-}
 
-//
-// .. Checkbox
-//
-.form_checkbox.__fake {
-  width: 1.6rem;
-  height: 1.6rem;
-  border: $form-el-border;
-  border-radius: $form-el-border-radius;
-  background: $form-el-bg;
-  line-height: 1.6rem;
-  @include prefixes(box-sizing, border-box);
-  &[data-checked="true"]::after {
-    margin: -1px 0 0 -1px;
-    color: fade-out($form-el-color, .3);
-    content:"\f00c";
-    text-align: center;
-    font: {
-      size: 1.2rem;
-      family: FontAwesome;
+  //
+  // .. Label
+  //
+  &.__label {
+    position: relative;
+    .form-el.__checkbox,
+    .form-el.__radio {
+      &.__fake {
+        position: absolute;
+        top: .1rem;
+        left: 0;
+      }
+    }
+    span:last-child {
+      display: inline-block;
+      margin-left: 2.1rem;
     }
   }
-  &[data-checked="true"][disabled]::after {opacity: .33;}
-}
 
-//
-// .. Radio
-//
-.form_radio.__fake {
-  width: 1.6rem;
-  height: 1.6rem;
-  border: $form-el-border;
-  border-radius: .8rem;
-  background: $form-el-bg;
-  line-height: 1.6rem;
-  @include prefixes(box-sizing, border-box);
-  &[data-checked="true"] {
-    &::after {
-      margin: -1px 0 0 -1px;
-      color: fade-out($form-el-color, .3);
-      content: "\f111";
+  //
+  // .. Legend
+  //
+  &.__legend {@extend .delta;}
+  
+  //
+  // .. Text
+  //
+  &.__tx {
+    padding: 0 .75rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: .3rem;
+    background: #fff;
+    font-size: inherit;
+    line-height: 2.8rem;
+  }
+
+  //
+  // .. Textarea
+  //
+  &.__textarea {
+    padding: .5rem .75rem;
+    border: 1px solid #ccc;
+    border-radius: .3rem;
+    background: #fff;
+    font-size: inherit;
+  }
+
+  //
+  // .. Button
+  //
+  &.__btn {
+    padding: 0 3rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: .3rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: inherit;
+    line-height: 2.8rem;
+    cursor: pointer;
+    @include prefixes(transition, none);
+    @include linear-gradient(vertical, #eee, #ddd);
+    &:not([disabled]):hover {box-shadow: inset 0 0 .3em rgba(0, 0, 0, .1);}
+    &:not([disabled]):active {@include linear-gradient(vertical, #ddd, #eee);}
+  }
+
+  //
+  // .. Checkbox
+  //
+  &.__checkbox.__fake {
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid #ccc;
+    border-radius: .3rem;
+    background: #fff;
+    &[data-checked="true"]::after {
+      line-height: 1.4rem;
+      content:"\f00c";
       text-align: center;
       font: {
-        size: .8rem;
+        size: 1.2rem;
         family: FontAwesome;
       }
     }
-    &[disabled]::after {opacity: .33;}
   }
-}
 
-//
-// .. File
-//
-.form_file.__fake {
-  padding: $form-el-padding;
-  border: $form-el-border;
-  border-radius: $form-el-border-radius;
-  background: $form-el-bg;
-  color: $form-el-color;
-  font-size: $form-el-font-size;
-  line-height: $form-el-line-height;
-  cursor: pointer;
-  @include prefixes(box-sizing, border-box);
-  &::after {
-    right: .4rem;
-    width: 2.4rem;
-    height: 2rem;
-    border: $form-el-border;
-    border-radius: $form-el-border-radius;
-    color: #aaa;
-    content: "\f07c";
-    text-align: center;
-    font: {
-      size: $form-el-font-size;
-      family: FontAwesome;
-    }
-    line-height: 1.3;
-    @include prefixes(box-sizing, border-box);
-    @include prefixes(transform, translate(0, -50%));
-  }
-  &[disabled]::after {opacity: .5;}
-  &:not([disabled]):hover::after {border: .1em solid #aaa;}
-  > p {margin-right: 2.8rem;}
-}
-
-//
-// .. Select
-//
-.form_select.__fake {
-  padding: $form-el-padding;
-  border: $form-el-border;
-  border-radius: $form-el-border-radius;
-  background: $form-el-bg;
-  color: $form-el-color;
-  vertical-align: top;
-  font-size: $form-el-font-size;
-  line-height: $form-el-line-height;
-  @include prefixes(box-sizing, border-box);
-  &::after {
-    right: .4rem;
-    width: 2rem;
-    height: 2rem;
-    border: $form-el-border;
-    border-radius: $form-el-border-radius;
-    color: #aaa;
-    content: "\f078";
-    text-align: center;
-    text-indent: -.1rem;
-    font: {
-      size: 1rem;
-      family: FontAwesome;
-    }
-    line-height: 1.8;
-    @include prefixes(box-sizing, border-box);
-    @include prefixes(transform, translate(0, -50%));
-  }
-  &[disabled]::after {opacity: .5;}
-  &:not([disabled]):hover::after {border: .1em solid #aaa;}
-  > p {margin-right: 2.4rem;}
-}
-  
-//
-// .. Textarea
-//
-.form_textarea {
-  padding: $form-el-padding; 
-  border: $form-el-border;
-  border-radius: $form-el-border-radius;
-  background: $form-el-bg;
-  color: $form-el-color;
-  font-size: $form-el-font-size;
-}
-
-//
-// .. Label
-//
-.form_label {
-  color: $form-el-color;
-  font-size: $form-el-font-size;
-  line-height: $form-el-line-height;
-  .form_checkbox,
-  .form_radio {
-    &.__fake {
-      top: .1em;
-      vertical-align: baseline;
+  //
+  // .. Radio
+  //
+  &.__radio.__fake {
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: #fff;
+    &[data-checked="true"] {
+      &::after {
+        line-height: 1.4rem;
+        content: "\f111";
+        text-align: center;
+        font: {
+          size: .75rem;
+          family: FontAwesome;
+        }
+      }
     }
   }
-}
 
-//
-// .. Legend
-//
-.form_legend {
-  color: $form-el-color;
-  @extend .delta;
-}
-  
-.form {
+  //
+  // .. File
+  //
+  &.__file.__fake {
+    padding: 0 .75rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: .3rem;
+    background: #fff;
+    line-height: 2.8rem;
+    cursor: pointer;
+    &::after {
+      right: .75rem;
+      color: #ccc;
+      content: "\f07c";
+      font: {
+        size: 1.4rem;
+        family: FontAwesome;
+      }
+    }
+    > p {margin-right: 2.4rem;}
+  }
+
+  //
+  // .. Select
+  //
+  &.__select.__fake {
+    padding: 0 .75rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: .3rem;
+    background: #fff;
+    line-height: 2.8rem;
+    &::after {
+      right: 1rem;
+      color: #ccc;
+      content: "\f0d7";
+      font: {
+        size: 1.4rem;
+        family: FontAwesome;
+      }
+    }
+    > p {margin-right: 2.2rem;}
+  }
+    
   //
   // .. Disabled
   //
-  [disabled] {
-    border-color: fade-out($form-el-border-color, .5) !important;
-    background: darken($form-el-bg, 5%) !important;
-    color: fade-out($form-el-color, .75) !important;
+  &[disabled] {
+    background: #eee !important;
+    opacity: .5;
     cursor: no-drop !important;
   }
 
   //
   // .. Reqiured
   //
-  [data-required="before"]::before,
-  [data-required="after"]::after {
-    top: -.33rem;
-    color: fade-out($form-el-color-required, .3);
+  &[data-required="before"]::before,
+  &[data-required="after"]::after {
+    color: #f90;
     content: "\f069";
     font: {
-      size: 70%;
+      size: 1rem;
       family: FontAwesome;
     }
     line-height: 1;
   }
-  [data-required="before"]::before {margin-left: -1.5rem;}
-  [data-required="after"]::after {margin-left: .25rem;}
+  &[data-required="before"]::before {margin-left: -1.5rem;}
+  &[data-required="after"]::after {margin-left: .5rem;}
 
   //
   // .. Validation
   //
-  [data-valid="true"] {
-    border-color: fade-out($form-el-color-valid-true, .3) !important;
-    background: fade-out($form-el-color-valid-true, .9) !important;
-    color: $form-el-color-valid-true !important;
+  &[data-valid="true"],
+  &[data-valid="false"] {
     &::after {
-      border-color: fade-out($form-el-color-valid-true, .6) !important;
-      color: fade-out($form-el-color-valid-true, .3) !important;
+      border-color: inherit !important;
+      color: inherit !important;
     }
-    &:hover::after {border-color: fade-out($form-el-color-valid-true, .3) !important;}
   }
 
-  [data-valid="false"] {
-    border-color: fade-out($form-el-color-valid-false, .3) !important;
-    background: fade-out($form-el-color-valid-false, .9) !important;
-    color: $form-el-color-valid-false !important;
-    &::after {
-      border-color: fade-out($form-el-color-valid-false, .6) !important;
-      color: fade-out($form-el-color-valid-false, .3) !important;
-    }
-    &:hover::after {border-color: fade-out($form-el-color-valid-false, .3) !important;}
+  &[data-valid="true"] {
+    border-color: fade-out(green, .3) !important;
+    background: fade-out(green, .9) !important;
+    color: fade-out(green, .3) !important;
   }
+
+  &[data-valid="false"] {
+    border-color: fade-out(red, .3) !important;
+    background: fade-out(red, .9) !important;
+    color: fade-out(red, .3) !important;
+  }
+
 }

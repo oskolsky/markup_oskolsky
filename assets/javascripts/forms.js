@@ -29,7 +29,7 @@
   var
     CheckBoxHandler = function(element) {
       this.$el = $(element);
-      this.$fake = this.$el.closest('.form_el.__fake');
+      this.$fake = this.$el.closest('.form-el.__fake');
 
       this.$el.change(this.refresh.bind(this));
       listenFocus(this.$fake, this.$el);
@@ -46,7 +46,7 @@
   var
     RadioButtonHandler = function(element) {
       this.$el = $(element);
-      this.$fake = this.$el.closest('.form_el.__fake');
+      this.$fake = this.$el.closest('.form-el.__fake');
 
       this.$el.change(this.change.bind(this));
       listenFocus(this.$fake, this.$el);
@@ -84,7 +84,7 @@
   var
     SelectHandler = function(element) {
       this.$el = $(element);
-      this.$fake = this.$el.closest('.form_el.__fake');
+      this.$fake = this.$el.closest('.form-el.__fake');
       this.$label = this.$fake.find('p');
 
       this.$el.change(this.refresh.bind(this));
@@ -105,7 +105,7 @@
   var
     FileInputHandler = function(element) {
       this.$el = $(element);
-      this.$fake = this.$el.closest('.form_el.__fake');
+      this.$fake = this.$el.closest('.form-el.__fake');
       this.$label = this.$fake.find('p');
       this.placeholder = this.$fake.attr('data-placeholder');
 

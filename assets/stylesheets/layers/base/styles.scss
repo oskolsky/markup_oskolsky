@@ -1,8 +1,5 @@
 html {height: 100%;}
 
-button, input, select, textarea,
-th, td { @include prefixes(box-sizing, border-box); }
-
 img {
   max-width: 100%;
   &[width],
@@ -10,6 +7,8 @@ img {
 }
 
 figure > img {display: block;}
+
+th, td {@include prefixes(box-sizing, border-box);}
 
 
 
@@ -19,24 +18,14 @@ figure > img {display: block;}
 //
 //****************************************************************************************************
 //
-// .. Display
-//
-.d-n  {display: none;}
-.d-i  {display: inline;}
-.d-b  {display: block;}
-.d-ib {display: inline-block;}
-
-//
 // .. Float
 //
-.f-n {float: none;}
 .f-l {float: left;}
 .f-r {float: right;}
 
 //
 // .. Overflow
 //
-.o-v  {overflow: visible;}
 .o-h  {overflow: hidden;}
 .ox-h {
   -ms-overflow-x: hidden;
@@ -50,22 +39,18 @@ figure > img {display: block;}
 //
 // .. Position
 //
-.p-a {position: absolute;}
 .p-r {position: relative;}
-.p-f {position: fixed;}
-.p-s {position: static;}
 
 //
 // .. Visibility
 //
-.hidden  {visibility: hidden;}
-.visible {visibility: visible;}
+.v-hidden  {visibility: hidden;}
+.v-visible {visibility: visible;}
 
 //
-// .. White-space, word-wrap
+// .. White-space
 //
-.nowrap  {white-space: nowrap;}
-.br-word {word-wrap: break-word;}
+.ws-nowrap {white-space: nowrap;}
 
 
 
@@ -75,7 +60,7 @@ figure > img {display: block;}
 //
 //****************************************************************************************************
 //
-// .. Block centering
+// .. Center
 //
 .b-center {
   display: block !important;
@@ -99,21 +84,10 @@ figure > img {display: block;}
   display: block;
   margin-right: auto;
   margin-left:  auto;
-  @if $grid == "fixed" { width: #{$grid-fixed-ctn-width - $grid-fixed-col-gutter}px; }
+  @if $grid == "fixed" {width: #{$grid-fixed-ctn-width - $grid-fixed-col-gutter}px;}
   @if $grid == "fluid" {
     min-width: nth($min-width-list, 1);
     max-width: nth($max-width-list, 1);
     width:     nth($ctn-width-list, 1);
   }
-}
-
-//
-// .. Scrollwidth
-//
-.scrollbar-measure {
-  position: absolute;
-  top: -9999px;
-  overflow: scroll;
-  width: 100px;
-  height: 100px;
 }

@@ -4,7 +4,7 @@ a {
   &.hover  {color: $link-color-hover;}
   &:active {color: $link-color-active;}
   @if $focus == true {
-    &:focus { @extend %focus-style; }
+    &:focus {@extend %focus-style;}
   }
 }
 
@@ -13,11 +13,12 @@ h1, h2, h3, h4, h5, h6,
   > a,
   > a > i,
   > .a.__inner > span {
-    text-decoration: none;
-    @if $link-style == un or $link-style == nu { 
+    @if $link-style == un or $link-style == nu {
       @include prefixes(transition, color .33s);
     }
   }
+  > a,
+  > .a.__inner > span {text-decoration: none;}
 }
 
 .a.__inner {
@@ -34,7 +35,7 @@ h1, h2, h3, h4, h5, h6,
 //****************************************************************************************************
 @if $link-style == nn or $link-style == uu { 
   
-  a { @include prefixes(transition, color .33s); } 
+  a {@include prefixes(transition, color .33s);} 
 
 }
 

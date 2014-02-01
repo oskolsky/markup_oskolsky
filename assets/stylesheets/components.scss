@@ -3,11 +3,9 @@
   //****************************************************************************************************
   //
   // .. VARIABLES
-  //
-  //****************************************************************************************************
-  //
   // .. Colors, http://flatuicolors.com/
   //
+  //****************************************************************************************************
   $c-color-red:    #c0392b; // .. pomegranate
   $c-color-orange: #e67e22; // .. carrot
   $c-color-yellow: #f1c40f; // .. sun flower
@@ -20,6 +18,44 @@
   $c-color-black:  #000;    // .. black
 
 
+  
+  //****************************************************************************************************
+  //
+  // .. ALERTS
+  //
+  //****************************************************************************************************
+  .c-alert {
+    position: relative;
+    padding: 2rem;
+    background: #ccc;
+    color: #fff;
+    text-align: center;
+    @include prefixes(box-sizing, border-box);
+    &.__s {
+      padding: 1rem;
+      .c-alert_close {
+        top: .5rem;
+        right: .5rem;
+      }
+    }
+    &.__l {
+      padding: 3rem;
+      .c-alert_close {
+        top: 1.5rem;
+        right: 1.5rem;
+      }
+    }
+
+    &.__round {border-radius: .6rem;}
+  }
+    .c-alert_close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+    }
+
+  
 
   //****************************************************************************************************
   //
@@ -118,7 +154,7 @@
   // .. BUTTONS
   //
   //****************************************************************************************************
-  .c-form_button {
+  .c-btn {
     color: #fff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .33);
     
@@ -127,64 +163,74 @@
     &:not([disabled]):hover {box-shadow: inset 0 0 .6em rgba(255, 255, 255, .33);}
     
     &.__xs {
-      padding: .075rem .45rem;
-      @extend .tx.__xs;
+      padding: 0 .5rem;
+      height: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.3rem;
     }
     &.__s {
-      padding: .15rem .6rem;
-      @extend .tx.__s;
+      padding: 0 2rem;
+      height: 2rem;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
     }
     &.__l {
-      padding: .6rem 2.4rem;
-      @extend .tx.__l;
+      padding: 0 4rem;
+      height: 4rem;
+      border-radius: .45rem;
+      font-size: 1.6rem;
+      line-height: 3.8rem;
     }
     &.__xl {
-      padding: 1.2rem 3.6rem;
-      @extend .tx.__xl;
+      padding: 0 5rem;
+      height: 5rem;
+      border-radius: .6rem;
+      font-size: 1.8rem;
+      line-height: 4.8rem;
     }
 
     &.__red {
       border-color: $c-color-red;
       @include linear-gradient(vertical, #cc6055, #c0392b);
-      &:not([disabled]):active { @include linear-gradient(vertical, #c0392b, #cc6055); }
+      &:not([disabled]):active {@include linear-gradient(vertical, #c0392b, #cc6055);}
     }
     &.__orange {
       border-color: $c-color-orange;
       @include linear-gradient(vertical, #eb974e, #e67e22);
-      &:not([disabled]):active { @include linear-gradient(vertical, #e67e22, #eb974e); }
+      &:not([disabled]):active {@include linear-gradient(vertical, #e67e22, #eb974e);}
     }
     &.__yellow {
       border-color: $c-color-yellow;
       @include linear-gradient(vertical, #f3cf3f, #f1c40f);
-      &:not([disabled]):active { @include linear-gradient(vertical, #f1c40f, #f3cf3f); }
+      &:not([disabled]):active {@include linear-gradient(vertical, #f1c40f, #f3cf3f);}
     }
     &.__green {
       border-color: $c-color-green;
       @include linear-gradient(vertical, #52be7f, #27ae60);
-      &:not([disabled]):active { @include linear-gradient(vertical, #27ae60, #52be7f); }
+      &:not([disabled]):active {@include linear-gradient(vertical, #27ae60, #52be7f);}
     }
     &.__blue {
       border-color: $c-color-blue;
       @include linear-gradient(vertical, #5399c7, #2980b9);
-      &:not([disabled]):active { @include linear-gradient(vertical, #2980b9, #5399c7); }
+      &:not([disabled]):active {@include linear-gradient(vertical, #2980b9, #5399c7);}
     }
     &.__violet {
       border-color: $c-color-violet;
       @include linear-gradient(vertical, #af7ac4, #9b59b6);
-      &:not([disabled]):active { @include linear-gradient(vertical, #9b59b6, #af7ac4); }
+      &:not([disabled]):active {@include linear-gradient(vertical, #9b59b6, #af7ac4);}
     }
     &.__gray {
       border-color: $c-color-gray;
       @include linear-gradient(vertical, #aab7b7, #95a5a6);
-      &:not([disabled]):active { @include linear-gradient(vertical, #95a5a6, #aab7b7); }
+      &:not([disabled]):active {@include linear-gradient(vertical, #95a5a6, #aab7b7);}
     }
     &.__dark {
       border-color: $c-color-dark;
       @include linear-gradient(vertical, #566473, #2c3e50);
-      &:not([disabled]):active { @include linear-gradient(vertical, #2c3e50, #566473); }
+      &:not([disabled]):active {@include linear-gradient(vertical, #2c3e50, #566473);}
     }
   }
-  a.c-form_button:hover {color: #fff;}
+  a.c-btn:hover {color: #fff;}
 
 
 
