@@ -1,4 +1,4 @@
-# Cantata
+# Oskolsky
 
 Version: 1.0
 
