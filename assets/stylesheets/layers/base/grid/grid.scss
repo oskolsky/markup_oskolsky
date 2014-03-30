@@ -1,6 +1,0 @@
-.grid-i:not(td) {
-  display: inline-block;
-  vertical-align: top;
-  @include prefixes(box-sizing, border-box);
-  @if $grid-width-transition == true {@include prefixes(transition, width .33s);}
-}
